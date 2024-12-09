@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Authentic User</title>
+</head>
+<body>
+    <h1>Add Authentic User</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+    {% endif %}
+    <form action="/admin/add_user" method="POST" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="reference_number">Reference Number:</label>
+        <input type="text" id="reference_number" name="reference_number" required><br><br>
+
+        <label for="passport_number">Passport Number:</label>
+        <input type="text" id="passport_number" name="passport_number" required><br><br>
+
+        <label for="images">Upload Images:</label>
+        <input type="file" id="images" name="images" multiple required><br><br>
+
+        <button type="submit">Add User</button>
+    </form>
+</body>
+</html>

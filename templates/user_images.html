@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Images</title>
+</head>
+<body>
+    <h1>Uploaded Images</h1>
+    {% if images %}
+        {% for image in images %}
+            <img src="data:image/png;base64,{{ image }}" alt="User Image" style="width:200px; height:auto; margin:10px;">
+        {% endfor %}
+    {% else %}
+        <p>No images to display.</p>
+    {% endif %}
+</body>
+</html>

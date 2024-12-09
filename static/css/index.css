@@ -1,0 +1,121 @@
+/* Resetting some default styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #140302; /* Canadian red */
+    padding: 0.5rem 1rem;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Menu styles */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #f8f8f8;
+}
+
+.menu-toggle {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+.content-section{
+    width: 100%;
+
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background-color:#140302;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Section styles */
+.content-section {
+    padding: 2rem;
+    background-color: #f8f8f8; /* Light color for sections */
+    border-bottom: 1px solid #ddd;
+}
+
+.content-section:nth-child(even) {
+    background-color: #e6e6e6;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+}
+
+footer p {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between text and icon */
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer .login-icon img {
+    width: 20px; /* Adjust the size of the icon */
+    height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+footer .login-icon img:hover {
+    transform: scale(1.1); /* Slight zoom-in effect on hover */
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EdenProject-s-Mission</title>
+  <link rel="stylesheet" href="/static/css/index.css">
+  <link rel="stylesheet" href="/static/css/eden-job-verification.css">
+  <link rel="stylesheet" href="/static/css/applying.css">
+  <link rel="stylesheet" href="/static/css/appointed.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="logo">Eden Projects Mission</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        &#9776;
+    </div>
+    <ul id="menu" class="menu">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="{{ url_for('eden_job_verification') }}">Eden Job Verification</a></li>
+    </ul>
+  </nav>
+
+  <form action="{{ url_for('eden_job_verification') }}" method="post" id="eden-job-verification">
+    <div class="imgcontainer">
+      <img src="/static/images/logo.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Passport Number</b></label>
+      <input type="text" placeholder="Enter Passport Number" name="passport_number" required>
+
+      <label for="psw"><b>Reference Number</b></label>
+      <input type="text" placeholder="Enter Reference Number" name="reference_number" required>
+
+      <button type="submit">EDEN JOB VERIFICATION</button>
+    </div>
+  </form>
+
+  <!-- Show error message if there's an issue -->
+  {% if error %}
+    <section>
+      <p style="color: red;">{{ error }}</p>
+    </section>
+  {% endif %}
+
+  <!-- Display customer data if found -->
+  {% if customer_data %}
+    <section>
+      <h2>Customer Information</h2>
+      <p><strong>Name:</strong> {{ customer_data[1] }}</p>
+      <p><strong>Passport Number:</strong> {{ customer_data[2] }}</p>
+      <p><strong>Reference Number:</strong> {{ customer_data[3] }}</p>
+      <p><strong>Job Designation:</strong> {{ customer_data[4] }}</p>
+      <!-- Display the profile picture if available -->
+      {% if customer_data[5] %}
+        <img src="data:image/png;base64,{{ customer_data[5] }}" alt="Profile Picture">
+      {% else %}
+        <p>No profile picture available.</p>
+      {% endif %}
+    </section>
+  {% endif %}
+
+  <section class="appointed">
+    <h2>New Appointed</h2>
+    <p>The people we have appointed will be the drivers of the company's growth.</p>
+
+    <table>
+      <tr>
+        <th style="background-color: rgb(239, 238, 227); font-weight: 300; color: rgb(255, 4, 13);">Profile</th>
+        <th style="background-color: rgb(239, 238, 227); font-weight: 300; color: rgb(255, 4, 13);">Name</th>
+        <th style="background-color: rgb(239, 238, 227); font-weight: 300; color: rgb(255, 4, 13);">Passport ID</th>
+        <th style="background-color: rgb(239, 238, 227); font-weight: 300; color: rgb(255, 4, 13);">Reference Number</th>
+        <th style="background-color: rgb(239, 238, 227); font-weight: 300; color: rgb(255, 4, 13);">View All</th>
+      </tr>
+      <tr>
+        <td><img src="/static/images/avatar.png" alt="Avatar" class="avatar_ap"></td>
+        <td>Smith</td>
+        <td>50</td>
+        <td>50</td>
+        <td><button>View All</button></td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="applying_job">
+    <ol>
+      <li>
+        <p><strong class="applying">Eligibility Check:</strong></p>
+        <ul>
+          <li><p><strong class="applying">📋 Required Documents for Application:</strong></p>
+            <ul>
+              <li>🆔 CNIC (National Identity Card)</li>
+              <li>🛂 Passport</li>
+              <li>📝 Character Certificate</li>
+              <li>📸 Passport-size photo</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p><strong class="applying">Document Preparation:</strong></p>
+        <ul>
+          <li><p><strong class="applying">📋 Required Documents for Application:</strong></p>
+            <ul>
+              <li>🆔 CNIC (National Identity Card)</li>
+              <li>🛂 Passport</li>
+              <li>📝 Character Certificate</li>
+              <li>📸 Passport-size photo</li>
+            </ul>
+          </li>
+          <li>Prepare proof of relevant work experience and qualifications.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong class="applying">Online Application:</strong></p>
+        <ul>
+          <li>Visit <a href="https://wa.me/14375001883" target="_new" rel="">Edan Jobs</a>.</li>
+          <li>Select the job you are applying for and fill out the online application form.</li>
+          <li>Upload all required documents.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong class="applying">Submission:</strong></p>
+        <ul>
+          <li>Submit the completed application online.</li>
+          <li>Await confirmation and further instructions from Edan Jobs.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong class="applying">Visa Assistance:</strong></p>
+        <ul>
+          <li>Edan Jobs provides visa processing assistance as part of their service.</li>
+        </ul>
+      </li>
+      <li>
+        <p><strong class="applying">Pre-departure and Arrival:</strong></p>
+        <ul>
+          <li>Attend any pre-departure orientation sessions.</li>
+          <li>Receive on-arrival support in Canada.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard</h1>
+
+    <div class="form-container">
+        <h2>Add Customer Details</h2>
+        <form action="/add_customer" method="POST" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="passport_number">Passport Number:</label>
+            <input type="text" id="passport_number" name="passport_number" required>
+
+            <label for="reference_number">Reference Number:</label>
+            <input type="text" id="reference_number" name="reference_number" required>
+
+            <label for="contact_number">Contact Number:</label>
+            <input type="tel" id="contact_number" name="contact_number" required>
+
+            <label for="job_designation">Job Designation:</label>
+            <input type="text" id="job_designation" name="job_designation" required>
+
+            <label for="profile_picture">Profile Picture:</label>
+            <input type="file" id="profile_picture" name="profile_picture" accept="image/*" required>
+
+            <button type="submit">Add Customer</button>
+        </form>
+    </div>
+</body>
+</html>
